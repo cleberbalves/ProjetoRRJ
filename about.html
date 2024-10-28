@@ -172,31 +172,50 @@
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 8000
-              },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
-              },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 40
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              // Inicializar o swiper com a configuração fornecida
+              const swiper = new Swiper(".init-swiper", {
+                loop: true,
+                speed: 600,
+                autoplay: {
+                  delay: 8000,
+                  disableOnInteraction: false
                 },
-                "1200": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 1
+                slidesPerView: "auto",
+                pagination: {
+                  el: ".swiper-pagination",
+                  type: "bullets",
+                  clickable: true
+                },
+                breakpoints: {
+                  320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10
+                  },
+                  600: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                  },
+                  1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 30
+                  }
                 }
-              }
-            }
+              });
+          
+              // Pausar autoplay do Swiper ao clicar ou focar em um iframe
+              document.querySelectorAll("iframe").forEach((iframe) => {
+                iframe.addEventListener("mouseenter", () => {
+                  swiper.autoplay.stop();
+                });
+                iframe.addEventListener("focus", () => {
+                  swiper.autoplay.stop();
+                });
+              });
+            });
           </script>
+          
           <div class="swiper-wrapper">
 
             <div class="swiper-slide">
