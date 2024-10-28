@@ -1244,6 +1244,7 @@ section,
   margin-bottom: 15px;
   font-size: 20px;
   font-family: var(--default-font);
+  align-items: center; text-align: center;
 }
 
 .services .service-item h4 a {
@@ -1256,6 +1257,7 @@ section,
   font-size: 14px;
   margin-bottom: 0;
   transition: ease-in-out 0.3s;
+  align-items: center; text-align: center;
 }
 
 .services .service-item:hover h4 a,
