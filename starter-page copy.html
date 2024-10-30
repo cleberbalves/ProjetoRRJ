@@ -81,43 +81,104 @@
 
   <main class="main">
 
-    <!-- Page Title -->
-    <div class="page-title" data-aos="fade">
-      <div class="heading">
-        <div class="container">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1>Starter Page</h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
-              <a href="contact.html" class="cta-btn">Available for Hire<br></a>
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ministério Infantil</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f3f3f3;
+            }
+            header {
+                background-color: #4CAF50;
+                color: white;
+                padding: 20px;
+                text-align: center;
+            }
+            section {
+                padding: 20px;
+                margin: 10px;
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+            h2 {
+                color: #4CAF50;
+            }
+            .carrossel img {
+                width: 100%;
+                max-width: 400px;
+                border-radius: 8px;
+                display: block;
+                margin: 10px auto;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <!-- Cabeçalho -->
+        <header>
+            <h1>Ministério Infantil</h1>
+            <p>Bem-vindo ao nosso ministério dedicado às crianças!</p>
+        </header>
+    
+        <!-- Seção: Quem Somos -->
+        <section id="quem-somos">
+            <h2>Quem Somos</h2>
+            <p>O Ministério Infantil da nossa igreja é dedicado a ensinar e guiar as crianças no amor de Deus, oferecendo um ambiente seguro e alegre para seu crescimento espiritual.</p>
+        </section>
+    
+        <!-- Seção: Nossa Missão -->
+        <section id="nossa-missao">
+            <h2>Nossa Missão</h2>
+            <p>Nossa missão é plantar as sementes da fé no coração das crianças, cultivando o amor e o conhecimento de Deus desde cedo, para que cresçam em sabedoria e graça.</p>
+        </section>
+    
+        <!-- Seção de Fotos -->
+        <section id="galeria-fotos">
+            <h2>Galeria de Fotos</h2>
+            <div class="carrossel">
+                <img src="foto1.jpg" alt="Foto 1 - Atividade Infantil">
+                <img src="foto2.jpg" alt="Foto 2 - Crianças Brincando">
+                <img src="foto3.jpg" alt="Foto 3 - Aula Bíblica">
+                <!-- Adicione mais imagens conforme necessário -->
             </div>
-          </div>
-        </div>
-      </div>
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Starter Page</li>
-          </ol>
-        </div>
-      </nav>
-    </div><!-- End Page Title -->
+        </section>
+    
+        <!-- Seção: Palavra do Dia -->
+        <section id="palavra-do-dia">
+            <h2>Palavra do Dia</h2>
+            <p id="versiculo">Aguarde, carregando a palavra do dia...</p>
+        </section>
+    
+        <!-- Script para carregar a Palavra do Dia da API -->
+        <script>
+            async function carregarPalavraDoDia() {
+                try {
+                    const resposta = await fetch('https://api.biblia.com/versiculo-do-dia'); // Substitua pela URL real da API
+                    const data = await resposta.json();
+                    document.getElementById("versiculo").innerText = data.versiculo;
+                } catch (error) {
+                    document.getElementById("versiculo").innerText = "Erro ao carregar a palavra do dia.";
+                }
+            }
+            carregarPalavraDoDia();
+        </script>
+    
+        <!-- Rodapé -->
+        <footer style="background-color: #4CAF50; color: white; text-align: center; padding: 10px;">
+            <p>Contato: (XX) XXXX-XXXX | <a href="index.html" style="color: white; text-decoration: none;">Voltar à página inicial</a></p>
+        </footer>
+    
+    </body>
+    </html>
+    
 
-    <!-- Starter Section Section -->
-    <section id="starter-section" class="starter-section section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Starter Section</h2>
-        <p>Necessitatibus eius consequatur</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up">
-        <p>Use this page as a starter for your own custom pages.</p>
-      </div>
-
-    </section><!-- /Starter Section Section -->
 
   </main>
 
