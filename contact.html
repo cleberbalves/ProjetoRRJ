@@ -138,48 +138,67 @@
           </div>
         </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> <script type="text/javascript"> 
-   (function(){ 
-    emailjs.init("oy9g4gnAL6tQFb047");})(); </script> </head> 
- <body>
-   <form id="prayer-request-form" action="" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
-      <div class="row gy-4">
-         <div class="col-md-6"> <input type="text" name="name" class="form-control" placeholder="Seu Nome" required> </div>
-         <div class="col-md-6"> <input type="email" class="form-control" name="email" placeholder="Seu Email" required> </div>
-         <div class="col-md-6"> <input type="text" class="form-control" name="contatotel" placeholder="Seu telefone" required> </div>
-         <div class="col-md-6"> <input type="text" class="form-control" name="numwats" placeholder="Seu whatsapp" required> </div>
-         <div class="col-md-12"> <textarea class="form-control" name="message" rows="6" placeholder="Alvo de Oração" required></textarea> </div>
-         <div class="col-md-12 text-center">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Seu pedido de oração foi enviado. Deus te abençoe</div>
-            <button type="submit">Enviar</button> 
-         </div>
-      </div>
-   </form>
-   <script> document.getElementById('prayer-request-form').addEventListener('submit', function(event) { event.preventDefault();
-     document.querySelector('.loading').style.display = 'block'; 
-     const formData = new FormData(this); 
-     const templateParams = { 
-      name: formData.get('name'), 
-      email: formData.get('email'), 
-      contatotel: formData.get('contatotel'), 
-      numwats: formData.get('numwats'), 
-      message: formData.get('message'), 
-      to_email: 'cleber@live.it,cleberbalves@hotmail.com'
-    }; 
-      
-      emailjs.send('service_a3zd0su', 'template_g7tptxd', templateParams) .then(function(response) { 
-        console.log('SUCCESS!', response.status, response.text); 
-        document.querySelector('.sent-message').style.display = 'block'; 
-        document.querySelector('.loading').style.display = 'none'; 
-      }, function(error) {
-         console.log('FAILED...', error); 
-         document.querySelector('.error-message').style.display = 'block'; 
-         document.querySelector('.loading').style.display = 'none'; 
-        });
-       }); 
-         </script>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script type="text/javascript"> 
+           (function(){ 
+              emailjs.init("oy9g4gnAL6tQFb047");
+           })();
+        </script>
+        </head> 
+        <body>
+           <form id="prayer-request-form" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+              <div class="row gy-4">
+                 <div class="col-md-6">
+                    <input type="text" name="name" class="form-control" placeholder="Seu Nome" required>
+                 </div>
+                 <div class="col-md-6">
+                    <input type="email" class="form-control" name="email" placeholder="Seu Email" required>
+                 </div>
+                 <div class="col-md-6">
+                    <input type="text" class="form-control" name="contatotel" placeholder="Seu telefone" required>
+                 </div>
+                 <div class="col-md-6">
+                    <input type="text" class="form-control" name="numwats" placeholder="Seu whatsapp" required>
+                 </div>
+                 <div class="col-md-12">
+                    <textarea class="form-control" name="message" rows="6" placeholder="Alvo de Oração" required></textarea>
+                 </div>
+                 <div class="col-md-12 text-center">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Seu pedido de oração foi enviado. Deus te abençoe</div>
+                    <button type="button" id="send-button">Enviar</button>
+                 </div>
+              </div>
+           </form>
+           <script> 
+              document.getElementById('send-button').addEventListener('click', function(event) { 
+                 event.preventDefault();
+                 document.querySelector('.loading').style.display = 'block';
+                 const form = document.getElementById('prayer-request-form');
+                 const formData = new FormData(form); 
+                 const templateParams = { 
+                    name: formData.get('name'), 
+                    email: formData.get('email'), 
+                    contatotel: formData.get('contatotel'), 
+                    numwats: formData.get('numwats'), 
+                    message: formData.get('message'), 
+                    to_email: 'cleber@live.it,cleberbalves@hotmail.com'
+                 };
+                 
+                 emailjs.send('service_a3zd0su', 'template_g7tptxd', templateParams)
+                 .then(function(response) { 
+                    console.log('SUCCESS!', response.status, response.text); 
+                    document.querySelector('.sent-message').style.display = 'block'; 
+                    document.querySelector('.loading').style.display = 'none'; 
+                 }, function(error) {
+                    console.log('FAILED...', error); 
+                    document.querySelector('.error-message').style.display = 'block'; 
+                    document.querySelector('.loading').style.display = 'none'; 
+                 });
+              });
+           </script>
+        
 
       </div>
 
